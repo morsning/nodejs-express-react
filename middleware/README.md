@@ -10,7 +10,8 @@ node app.js
 
 **A concept called Middleware is used to specify functions that execute some logic in response to one or more routes being triggered by an incoming request.**
 Middleware functions are executed in sequential order corresponding to the order we register them.
-There are several ways of registering/applying Middleware for one or more routes. 
+There are several ways of registering/applying Middleware for one or more routes.
+
 In this example the Middleware function we named myCustomMiddleware2 is register for all routes through passing it to app.use()
 The logic in this function will execute regardless of which of our routes triggered. In other words, visiting localhost:3000 or localhost:3000/route1 or route2 or route3 will all result in your terminal printing the text: “middleware for all” 
 In contrast the other middleware we have created is registered specifically for route3.
