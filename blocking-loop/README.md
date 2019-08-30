@@ -1,4 +1,4 @@
-#About this example
+# About this example
 
 * After cloning the repo run npm install as usual to install express.
 
