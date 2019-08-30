@@ -54,9 +54,11 @@ app.Method(PATH, HANDLER)
 
 If we would want to respond to a get request on the root route from a client our path would look like this: 
 
+```
 app.get(‘/’, function(req, res) {
 	res.send(‘some message’)
 })
+```
 
 When creating our Express application we use a concept called Middleware in order to execute some functionality for an incoming request.
 Middleware functions are registered in a specific order which determines the order they are executed for an incoming request. 
@@ -67,7 +69,8 @@ We can register our Middleware function in several ways, the following example d
 
 We start by creating the middleware function we want to use: 
 
-```const myCustomMiddleware = (req, res, next) => {
+```
+const myCustomMiddleware = (req, res, next) => {
 	execute some logic...
 	next() //move on to the next middleware
 }
@@ -76,12 +79,14 @@ We start by creating the middleware function we want to use:
 
 We can apply/register it at a specific route in order to invoke it only if its a matching get request
 
-```app.get(‘/contact’, myCustomMiddleware, (req, res) => {
+```
+app.get(‘/contact’, myCustomMiddleware, (req, res) => {
 	res.send(‘hello’)
 })
 ```
 
-```app.post(‘/contact’, (req, res) => {
+```
+app.post(‘/contact’, (req, res) => {
 	console.log(req.body)
 	res.send(‘hello’)
 })
@@ -89,15 +94,17 @@ We can apply/register it at a specific route in order to invoke it only if its a
 
 If we instead want the middleware to execute for both of our routes we can register it through the following syntax: 
 
-```app.use(myCustomMiddleware)
+```
+app.use(myCustomMiddleware)
 ```
 
-```app.get(‘/contact’, (req, res) => {
+```
+app.get(‘/contact’, (req, res) => {
 	res.send(‘hello’)
 })
 ```
-
-```app.post(‘/contact’, (req, res) => {
+```
+app.post(‘/contact’, (req, res) => {
 	console.log(req.body)
 	res.send(‘hello’)
 })
